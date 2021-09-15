@@ -8,11 +8,20 @@
 # s = "GATATATGCATATACTT"
 # t = "ATAT"
 
-# print(s.index(t))
-# print(s[4:].index(t))
+# print(s.find(t))
+# print(s[4:].find(t))
+# a = "TCAATGCATGCGGGTCTATATGCAT"
+# print(len(a))
+# a = ["def"]
+c = ["abcdef", "def"]
+print(c)
+# b = c[0]
 
-a = []
+# print(b.find(a[0]))
 
-a.append(3)
-a.append(4)
-print(a)
+# if b.find(a[0]) != -1:
+#     print("a")
+# a.append(3)
+# a.append(4)
+# print(a)
+# print(len(a))
