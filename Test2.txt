@@ -1,0 +1,3 @@
+HLA-A   data1   data2
+HLA-B   data1   data2
+HLA-C   data1   data2

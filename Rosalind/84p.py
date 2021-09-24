@@ -1,7 +1,7 @@
 fi = open("84p.txt", "r")
 n = 0
 # print(fi)
-# fil = fi.readlines()
+# fil = fi.read()
 # print(fil)
 for i in fi:
     n += 1

@@ -1,46 +1,73 @@
-# input_str = input("DNA strings : ")
 filename = input("filename : ")
 fi = open(filename, "r")
-fil = fi.read()
+fasta = ""
+n = 0
+for i in fi:
+    if i.startswith(">"):
+        fasta += "\n" + i
+    else:
+        fasta += i.strip()
+    if n == 0:
+        fasta = fasta.lstrip()
+    n += 1
 fi.close()
 
-# input_str = ">Rosalind_6404\
-# CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC\
-# TCCCACTAATAATTCTGAGG\
-# >Rosalind_5959\
-# CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT\
-# ATATCCATTTGTCAGCAGACACGC\
-# >Rosalind_0808\
-# CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC\
-# TGGGAACCTGCGGGCAGTAGGTGGAAT"
+# print(fasta)
 
-input_str = fil
-
-l_str = input_str.split(">")
-d_dna_with_gc = dict()
-# print(l_str)
-
-for i in l_str:
-    if i != "":
-        d_dna_with_gc[i[:13]] = 0
-        dna_str = i[13:]
-        c = dna_str.count("C")
-        g = dna_str.count("G")
-        gc = (c + g) / len(dna_str) * 100
-        d_dna_with_gc[i[:13]] = gc
-
-print(d_dna_with_gc)
-
+l_fasta = fasta.split("\n")
+print(l_fasta)
+dict_dna = dict()
+x = 0
+for i in l_fasta:
+    if l_fasta[x].startswith(">"):
+        # dict_dna[l_fasta[x]] = ""
+        pass
+    else:
+        dict_dna[l_fasta[x - 1]] = i
+    x += 1
+print(dict_dna)
 l_gc = []
-for x in d_dna_with_gc:
-    l_gc.append(d_dna_with_gc[x])
+for i in dict_dna:
+    dna = dict_dna[i]
+    c = dna.count("C")
+    g = dna.count("G")
+    gc = (c + g) / len(dna) * 100
+    l_gc.append(gc)
 
-gc_max = max(l_gc)
+print(l_gc)
+print(round(max(l_gc), 6))
 
-for x in d_dna_with_gc:
-    if d_dna_with_gc[x] == gc_max:
-        print(x)
-        print(round(gc_max, 6))
+
+# # input_str = input("DNA strings : ")
+# filename = input("filename : ")
+# fi = open(filename, "r")
+# fil = fi.read()
+# fi.close()
+
+# input_str = fil
+
+# l_str = input_str.split(">")
+# d_dna_with_gc = dict()
+# # print(l_str)
+# for i in l_str:
+#     if i != "":
+#         d_dna_with_gc[i[:13]] = 0
+#         dna_str = i[13:]
+#         c = dna_str.count("C")
+#         g = dna_str.count("G")
+#         gc = (c + g) / len(dna_str) * 100
+#         d_dna_with_gc[i[:13]] = gc
+# print(d_dna_with_gc)
+# l_gc = []
+# for x in d_dna_with_gc:
+#     l_gc.append(d_dna_with_gc[x])
+
+# gc_max = max(l_gc)
+
+# for x in d_dna_with_gc:
+#     if d_dna_with_gc[x] == gc_max:
+#         print(x)
+#         print(round(gc_max, 6))
 
 ###################################
 # for i in l_str:

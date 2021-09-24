@@ -1,0 +1,7 @@
+Group	data1	data2	Sample
+HLA-A   data1   data2	Test1.txt
+HLA-B   data1   data2	Test1.txt
+HLA-C   data1   data2	Test1.txt
+HLA-A   data1   data2	Test2.txt
+HLA-B   data1   data2	Test2.txt
+HLA-C   data1   data2	Test2.txt
