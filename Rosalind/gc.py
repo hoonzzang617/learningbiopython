@@ -3,16 +3,19 @@ fi = open(filename, "r")
 fasta = ""
 n = 0
 for i in fi:
+
     if i.startswith(">"):
         fasta += "\n" + i
     else:
         fasta += i.strip()
     if n == 0:
         fasta = fasta.lstrip()
-    n += 1
+        n = 1
+
+
 fi.close()
 
-# print(fasta)
+print(fasta)
 
 l_fasta = fasta.split("\n")
 print(l_fasta)
@@ -27,14 +30,19 @@ for i in l_fasta:
     x += 1
 print(dict_dna)
 l_gc = []
+d_dna_w_gc = dict()
 for i in dict_dna:
     dna = dict_dna[i]
     c = dna.count("C")
     g = dna.count("G")
     gc = (c + g) / len(dna) * 100
     l_gc.append(gc)
+    d_dna_w_gc[i] = gc
 
-print(l_gc)
+# print(l_gc)
+for i in d_dna_w_gc:
+    if d_dna_w_gc[i] == max(l_gc):
+        print(i[1:])
 print(round(max(l_gc), 6))
 
 
